@@ -343,7 +343,7 @@ class Group_LDAP extends BackendUtility implements \OCP\GroupInterface, IGroupLD
 		}
 
 		$seen = [];
-		while ($record = array_pop($list)) {
+		while ($record = array_shift($list)) {
 			$recordDN = $recordMode ? $record['dn'][0] : $record;
 			if ($recordDN === $dn || array_key_exists($recordDN, $seen)) {
 				// Prevent loops
